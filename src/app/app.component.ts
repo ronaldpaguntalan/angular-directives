@@ -21,6 +21,8 @@ export class AppComponent {
 
   stepForm: string = "";
 
+  isActive: boolean = true;
+
 
   constructor(){
     for(let i = 0; i < this.postArray.length; i++){
@@ -46,5 +48,9 @@ export class AppComponent {
   deleteThis(index: number){
     this.objArray.splice(index, 1);
     this.newObjArray.splice(index, 1);
+  }
+
+  onClick(status: string){
+    this.stepForm = status;
   }
 }

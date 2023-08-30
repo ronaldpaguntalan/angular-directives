@@ -43,14 +43,55 @@
   <p>There is no Data to Fetch</p>
 </ng-template>
 
+<br>
 <!-- ngSwitchCase -->
 
 <div>
-  <button>Step 1</button>
-  <button>Step 2</button>
-  <button>Step 3</button>
+  <button (click)="onClick('step 1')">Step 1</button>
+  <button (click)="onClick('step 2')">Step 2</button>
+  <button (click)="onClick('step 3')">Step 3</button>
+</div>
+<br>
+
+<div [ngSwitch] = "stepForm"> 
+  <div *ngSwitchCase = "'step 1'">Step 1 Form</div>
+  <div *ngSwitchCase = "'step 2'">Step 2 Form</div>
+  <div *ngSwitchCase = "'step 3'">Step 3 Form</div>
+  <div *ngSwitchDefault> Nothing to Show </div>
 </div>
 
-<div>Step 1 Form</div>
-<div>Step 2 Form</div>
-<div>Step 3 Form</div>
+<!-- NGStyle Directive -->
+
+<p>NgStyle Directive</p>
+
+<h1 
+  [style.color] = "isActive ? 'red' : 'black'"
+  [style.textTransform]= "isActive ? 'uppercase' : 'lowercase'"
+>Angular Udemy Courses</h1> 
+
+<h1 [ngStyle]="{ 
+      color: isActive ? 'red' : 'black',
+      textTransform: isActive ? 'uppercase' : 'lowercase'
+    }">
+With NgStyle Directive
+</h1>
+
+
+<p>NgClass Directive</p>
+
+<h1
+  [class.main] = "isActive"
+  [class.text-weight] = "isActive"
+>
+This is Class Style Binding
+</h1>
+
+
+<h1
+  [ngClass]= "{
+    'main' : isActive,
+    'text-weight': isActive
+  }"
+>
+This is ngClass Style Binding
+</h1>
